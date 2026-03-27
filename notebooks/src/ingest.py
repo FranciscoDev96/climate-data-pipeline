@@ -3,10 +3,12 @@ import json
 import os
 from datetime import datetime
 
-API_KEY = "51a2c970f6a1ffaf3112a95e831c7953"
+API_KEY = os.getenv("API_KEY")
+if not API_KEY:
+    raise ValueError("API_KEY não encontrada. Configure a variável de ambiente.")
 CITY = "Campinas"
 
-url = f"https://api.openweathermap.org/data/2.5/weather?q={"CAMPINAS"}&appid={"51a2c970f6a1ffaf3112a95e831c7953"}&units=metric"
+url = f"https://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric"
 
 response = requests.get(url)
 
