@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 from datetime import datetime
 
 API_KEY = "51a2c970f6a1ffaf3112a95e831c7953"
